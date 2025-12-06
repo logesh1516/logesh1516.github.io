@@ -453,7 +453,8 @@
       alt="Robot"
       style="width:150px;height:150px;border-radius:50%;margin-bottom:20px;border:3px solid #38bdf8;box-shadow: 0 0 30px rgba(56,189,248,0.5);">
     <h2>Robotics & Automation Engineer</h2>
-    <p>Building simulations, robots, automation systems, and intelligent robotics applications using ROS 2, OpenCV, AI
+    <p>Building simulations, robots, automation systems, and intelligent robotics applications using ROS 2, Isaac sim
+      ,AI
       and embedded systems.</p>
     <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My
       Work</button>
@@ -467,8 +468,7 @@
       <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Robot Arm"
         style="width:200px;height:200px;border-radius:15px;border:2px solid #38bdf8;">
       <p style="max-width:600px;text-align:center;opacity:0.8;font-size:18px;line-height:1.8;">
-        I am Logesh, a Robotics & Automation engineer passionate about robot simulations, SLAM, computer vision,
-        conveyor
+        I am Logesh, a Robotics & Automation engineer passionate about robot simulations,robot arm manipulation, Nav2
         automation, and embedded robotics. I love building real-world robotic systems—from Gazebo worlds to AMRs and
         robotic arms.
       </p>
@@ -500,11 +500,11 @@
       </div>
       <div class="card skill-card">
         <h4>🎮 Simulation</h4>
-        <p>Gazebo 11, Ignition, PyBullet, MuJoCo</p>
+        <p>Isaac sim, Gazebo, Genesis</p>
       </div>
       <div class="card skill-card">
         <h4>🦾 Robotic Arms</h4>
-        <p>MyCobot, MoveIt, MTC</p>
+        <p>Moveit2, Moveit task Constructor(MTC)</p>
       </div>
       <div class="card skill-card">
         <h4>👁️ Computer Vision</h4>
@@ -512,7 +512,7 @@
       </div>
       <div class="card skill-card">
         <h4>💻 Programming</h4>
-        <p>Python, C++, Flutter, Rust basics</p>
+        <p>Python, C++, Flutter</p>
       </div>
       <div class="card skill-card">
         <h4>⚙️ IIoT & Automation</h4>
@@ -524,7 +524,7 @@
       </div>
       <div class="card skill-card">
         <h4>🛠️ Tools</h4>
-        <p>Git, Linux, NVChad, VS Code</p>
+        <p>Git, Linux, Neovim</p>
       </div>
 
     </div>
@@ -721,7 +721,7 @@
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
-      document.getElementById('progressBar').style.width = scrolled + '%';
+i     document.getElementById('progressBar').style.width = scrolled + '%';
     });
 
     // Header scroll effect
