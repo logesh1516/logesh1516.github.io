@@ -130,6 +130,16 @@
       border: 3px solid var(--color-primary);
     }
 
+    .carousel-slide video {
+      width: 100%;
+      max-height: 460px;
+      /* fits inside the 500px wrapper minus padding */
+      height: auto;
+      object-fit: contain;
+      border-radius: 15px;
+      display: block;
+    }
+
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -1567,10 +1577,25 @@
       <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
           <div class="carousel-slide">
-            <img src="images/AMR.png" alt="Autonomous Mobile Robot">
+            <video controls loop class="carousel-video">
+              <source src="videos/Nikiro.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="carousel-slide">
-            <img src="images/AMR1.png" alt="Robot Base Model">
+            <video controls loop class="carousel-video">
+              <source src="videos/Nikiro_simulation.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls loop class="carousel-video">
+              <source src="videos/Digital Twin.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/Nikiro_original.jpg" alt="Autonomous Mobile Robot">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/award.jpg" alt="SREC AWARD">
           </div>
           <div class="carousel-slide">
             <img src="images/kintsuki.png" alt="Kintsuki Pot Design">
@@ -1579,40 +1604,22 @@
             <img src="images/kintsuki_pot.png" alt="Kintsuki Project">
           </div>
           <div class="carousel-slide">
-            <img src="images/award.jpg" alt="Project Screenshot 1">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/coe1.png" alt="Project Screenshot 2">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/coe2.png" alt="Project Screenshot 3">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/coe3.png" alt="Project Screenshot 4">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/coe4.png" alt="Project Screenshot 5">
+            <img src="images/COE.png" alt="Coe replica">
           </div>
           <div class="carousel-slide">
             <img src="images/smart_toilet.jpg" alt="Smart Toilet Design">
           </div>
           <div class="carousel-slide">
-            <img src="images/ideathonbot-Camera.png" alt="Bidet Design">
+            <img src="images/ideathonbot-Camera.png" alt="IDEATHON">
           </div>
           <div class="carousel-slide">
-            <img src="images/IDEATHON PROTO.png" alt="Bidet Design">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/blender.png" alt="Camera System 3">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/painter.png" alt="Design Render">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/stager.png" alt="Design Render">
+            <img src="images/IDEATHON PROTO.png" alt="IDEATHON_proto">
           </div>
           <div class="carousel-slide">
             <img src="images/designer.png" alt="Camera System">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/stager.png" alt="Design Render">
           </div>
           <div class="carousel-slide">
             <img src="images/fabric3.png" alt="Design Render">
@@ -1621,16 +1628,10 @@
             <img src="images/scavenger.png" alt="Design Render">
           </div>
           <div class="carousel-slide">
-            <img src="images/scavenger_1.png" alt="Design Render">
+            <img src="images/Scavenger_bot.jpg" alt="Design Render">
           </div>
           <div class="carousel-slide">
             <img src="images/roller skates.png" alt="Design Render">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/srec_bot.png" alt="Design Render">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/srec_bot1.png" alt="Design Render">
           </div>
           <div class="carousel-slide">
             <img src="images/jetmax_re-Camera.png" alt="Design Render">
