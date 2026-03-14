@@ -130,26 +130,6 @@
       border: 3px solid var(--color-primary);
     }
 
-    /* Video slides use column layout for video + caption */
-    .carousel-slide.video-slide {
-      flex-direction: column;
-      padding: 10px 30px 10px;
-      align-items: stretch;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .carousel-slide.video-slide video {
-      width: 100%;
-      max-height: 480px;
-      height: auto;
-      object-fit: contain;
-      border-radius: 15px;
-      display: block;
-      box-shadow: 0 20px 60px rgba(56, 189, 248, 0.4);
-      border: 2px solid rgba(56, 189, 248, 0.5);
-    }
-
     .slide-caption {
       margin-top: 10px;
       text-align: center;
@@ -1357,7 +1337,6 @@
               </li>
             </ul>
           </div>
-
           <div
             style="margin-top:30px;padding:20px;background:rgba(56,189,248,0.1);border-radius:15px;border-left:4px solid #38bdf8;">
             <p style="font-size:15px;line-height:1.6;opacity:0.95;">
@@ -1372,7 +1351,6 @@
               <img src="https://cdn.simpleicons.org/ros/FFFFFF" height="20" style="margin-right:10px;" />
               <span style="position:relative;z-index:1;">ROS Discourse</span>
             </button>
-
             <button class="btn"
               onclick="window.open('https://www.hackster.io/Elephant-Robotics-Official/building-an-indoor-navigation-robot-with-nikiro-and-mycobot-0122e8', '_blank')">
               <img src="https://cdn.simpleicons.org/hackster/FFFFFF" height="20" style="margin-right:10px;" />
@@ -1439,42 +1417,54 @@
       </div>
     </div>
     <div class="projects">
-      <div class="card">
+      <a href="https://www.linkedin.com/posts/logesh-s-17674824b_robotics-automation-innovation-activity-7160306993746874368-L30t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3ePuoBQMq-eymcajH24mmiFO1cDOwpDD0"
+        target="_blank" class="card">
         <h4>🤖 Scavenger and Disinfecting robot</h4>
-        <p>Designed and developed a remotely controlled mobile robot with a 5-axis robotic arm for cleaning and
-          disinfection tasks. Contributed to mechanical design, chassis fabrication, 3D modeling, and mobile application
-          development.</p>
-      </div>
-      <div class="card">
+        <p>Designed and built a remotely controlled mobile robot with a 5-axis arm
+          for cleaning and disinfection — handling chassis fabrication, 3D modeling,
+          and a custom mobile app for remote control.</p>
+      </a>
+      <a href="https://www.linkedin.com/posts/logesh-s-17674824b_robotics-digitaltwin-unity3d-activity-7203428677873770496-xfgA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3ePuoBQMq-eymcajH24mmiFO1cDOwpDD0"
+        target="_blank" class="card">
         <h4>🎯 Digital Twin of MyCobot 280 JN</h4>
         <p>Created a high-fidelity digital twin of the MyCobot 280 JN using NVIDIA Isaac Sim. Built realistic robot and
           environment models using Fusion 360, Blender, and Adobe Substance, and integrated hardware with ROS 2 for
           simulation validation.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a href="https://github.com/logesh1516/urdf-mesh-optimization" target="_blank" class="card">
+        <h4>🤖 URDF Mesh Optimization Pipeline</h4>
+        <p>Manually optimized industrial robot meshes in Blender for 4 manipulators
+          (KUKA IIWA, ABB IRB-5720, Yaskawa AR1440 & HC10DTP) — reducing triangle
+          count by ~95% for visuals and ~99.75% for collision geometry (33 MB → 1.9 MB).
+          Structured into clean ROS 2 description packages ready for RViz, Gazebo,
+          MoveIt, and Isaac Sim.</p>
+      </a>
+      <a href="https://www.linkedin.com/posts/logesh-s-17674824b_automation-robotics-conveyorsystems-activity-7269251936598540288-AOir?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3ePuoBQMq-eymcajH24mmiFO1cDOwpDD0"
+        target="_blank" class="card">
         <h4>📦 Conveyor Automation Simulation</h4>
         <p>A custom conveyor belt simulation built for ROS 2 Humble, enabling automated object handling. Ideal for
           testing conveyor interaction logic and automation systems.</p>
-      </div>
+      </a>
 
-      <div class="card">
+      <a href="https://github.com/logesh1516/Docker_for_ydlidarX2" target="_blank" class="card">
         <h4>🐳 Docker for ydlidarX2</h4>
         <p>Docker configuration and setup files to containerize and test the YDLidar X2 sensor on ROS 2 Humble.
           Simplifies development and deployment of LIDAR-based robotic sensing.</p>
-      </div>
-
-      <div class="card">
+      </a>
+      <a href="https://marketplace.visualstudio.com/items?itemName=LogeshS.moveit2" target="_blank" class="card">
         <h4>💻 MoveIt Task Constructor Snippets (VS Code Extension)</h4>
-        <p>A VS Code snippets extension that provides ready-to-use C++ templates for MoveIt Task Constructor in ROS 2.
-          Speeds up task pipeline development by reducing boilerplate and improving code consistency.</p>
-      </div>
-      <div class="card">
+        <p>Published a VS Code extension providing ready-to-use C++ templates for
+          MoveIt 2 Task Constructor — born from real pain points while building
+          manipulation pipelines. Reduces boilerplate and speeds up MTC development
+          in ROS 2.</p>
+      </a>
+      <a href="https://www.linkedin.com/posts/logesh-s-17674824b_hackathon-innovation-smartindiahackathon2023-activity-7159916719480696832-LplQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3ePuoBQMq-eymcajH24mmiFO1cDOwpDD0"
+        target="_blank" class="card">
         <h4>🚽 Smart Toilet (SIH 2023)</h4>
         <p>Designed a smart toilet solution to improve hygiene, automation, and resource efficiency using IoT and
           sensor-based monitoring. Implemented features like usage detection, automated sanitation, and real-time data
           monitoring for maintenance and analytics.</p>
-      </div>
-
+      </a>
     </div>
   </section>
 
@@ -1625,39 +1615,17 @@
     <div class="gallery-container">
       <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide video-slide">
-            <video controls loop class="carousel-video">
-              <source src="videos/Nikiro.mp4" type="video/mp4">
-            </video>
-            <div class="slide-caption">
-              <span class="caption-tag">// NIKIRO</span>
-              <p class="caption-text">Nikiro — Autonomous Mobile Robot navigating real-world environments</p>
-            </div>
-          </div>
-          <div class="carousel-slide video-slide">
-            <video controls loop class="carousel-video">
-              <source src="videos/Nikiro_simulation.mp4" type="video/mp4">
-            </video>
-            <div class="slide-caption">
-              <span class="caption-tag">// ros 2 simulation</span>
-              <p class="caption-text">Nikiro in Gazebo — SLAM-based mapping and autonomous navigation pipeline</p>
-            </div>
-          </div>
-          <div class="carousel-slide video-slide">
-            <video controls loop class="carousel-video">
-              <source src="videos/Digital Twin.mp4" type="video/mp4">
-            </video>
-            <div class="slide-caption">
-              <span class="caption-tag">// nvidia isaac sim</span>
-              <p class="caption-text">Digital Twin of MyCobot 280 JN — high-fidelity simulation with ROS 2 integration
-              </p>
-            </div>
-          </div>
           <div class="carousel-slide">
             <img src="images/Nikiro_original.jpg" alt="Autonomous Mobile Robot">
           </div>
           <div class="carousel-slide">
             <img src="images/award.jpg" alt="SREC AWARD">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/scavenger.png" alt="Scavenger cad">
+          </div>
+          <div class="carousel-slide">
+            <img src="images/Scavenger_bot.jpg" alt="Scavenger real">
           </div>
           <div class="carousel-slide">
             <img src="images/kintsuki.png" alt="Kintsuki Pot Design">
@@ -1685,12 +1653,6 @@
           </div>
           <div class="carousel-slide">
             <img src="images/fabric3.png" alt="Design Render">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/scavenger.png" alt="Design Render">
-          </div>
-          <div class="carousel-slide">
-            <img src="images/Scavenger_bot.jpg" alt="Design Render">
           </div>
           <div class="carousel-slide">
             <img src="images/roller skates.png" alt="Design Render">
