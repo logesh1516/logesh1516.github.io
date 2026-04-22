@@ -902,6 +902,46 @@
       opacity: 1;
     }
 
+    /* VIDEO GRID */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+      margin-top: 30px;
+    }
+
+    .video-item {
+      background: var(--bg2);
+      border: 5px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--green);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .video-label::before {
+      content: '▶';
+      font-size: 8px;
+    }
+
+    .video-item iframe {
+      width: 100%;
+      height: 340px;
+      border: none;
+      display: block;
+    }
+
     /* CONTACT */
     .contact-block {
       border: 1px solid var(--border);
@@ -1745,7 +1785,8 @@
 
     <div class="exp-list reveal">
       <div class="exp-item">
-        <div class="exp-period">Jan 2025 – Feb 2025</div>
+        <div class="exp-period">Jun 2024 – Jul 2024<br><span style="color:var(--text3);font-size:10px;">Bengaluru</span>
+        </div>
         <div>
           <div class="exp-role">Robotics Engineer Intern</div>
           <div class="exp-company">Flo Mobility Pvt Ltd</div>
@@ -1754,13 +1795,13 @@
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-period">Jun 2024 – Jul 2024<br><span style="color:var(--text3);font-size:10px;">Bengaluru</span>
+        <div class="exp-period">Jan 2025 – Feb 2025
         </div>
         <div>
           <div class="exp-role">Robotics Intern</div>
           <div class="exp-company">KarthiKesh Robotics Pvt Ltd</div>
           <p class="exp-desc">Worked on autonomous mobile robot simulation workflows, contributed to ROS 2-based
-            navigation pipelines, and gained hands-on experience with real AMR systems.</p>
+            navigation pipelines, and gained hands-on experience with ROS2 workflow.</p>
         </div>
       </div>
     </div>
@@ -1799,7 +1840,7 @@
   <section id="gallery">
     <div class="section-label">Gallery</div>
     <h2 class="section-title">In the <span>lab.</span></h2>
-    <div class="gallery-grid reveal">
+    <div class="gallery-grid reveal" id="galleryGrid">
       <div class="gallery-item">
         <img src="https://logesh1516.github.io/images/Nikiro_original.webp" alt="Nikiro AMR" loading="lazy" />
         <div class="gallery-caption">Nikiro AMR — Physical Robot</div>
@@ -1833,6 +1874,30 @@
         <div class="gallery-caption">Battle Bot Design</div>
       </div>
     </div>
+
+    <!-- VIDEO EMBEDS -->
+    <div class="video-grid reveal" id="videoGrid">
+      <div class="video-item">
+        <div class="video-label">Nikiro - Logistics system</div>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328418940064280576?compact=1"
+          allowfullscreen title="Nikiro AMR"></iframe>
+      </div>
+      <div class="video-item">
+        <div class="video-label">Wine Glass Manipulation — MTC · Isaac Sim</div>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452209594912903169?compact=1"
+          allowfullscreen title="Wine Glass Manipulation"></iframe>
+      </div>
+      <div class="video-item">
+        <div class="video-label">Digital Twin — MyCobot 280 · Isaac Sim</div>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7203428660593270785?compact=1"
+          allowfullscreen title="Digital Twin"></iframe>
+      </div>
+      <div class="video-item">
+        <div class="video-label">Conveyor Belt Simulation — ROS 2</div>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7269251873277124608?compact=1"
+          allowfullscreen title="Conveyor Simulation"></iframe>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -1857,7 +1922,7 @@
   </section>
 
   <footer>
-    <div class="footer-text">© 2026 <span>Logesh S</span> — Robotics & Automation Engineer</div>
+    <div class="footer-text">© 2025 <span>Logesh S</span> — Robotics & Automation Engineer</div>
     <div class="footer-text">Built with <span>passion</span> for robotics 🤖</div>
   </footer>
 
@@ -1916,23 +1981,29 @@
       });
     });
 
-    // SCANLINE HOLE — punch out model viewer area
+    // SCANLINE HOLE — punch out model viewer, gallery, and video grid
     const scanlines = document.getElementById('scanlines');
-    const modelWrap = document.querySelector('.model-viewer-wrap');
+    const holeTargets = [
+      document.querySelector('.model-viewer-wrap'),
+      document.getElementById('galleryGrid'),
+      document.getElementById('videoGrid')
+    ].filter(Boolean);
+
+    function buildHolePolygon(rects, W, H) {
+      // Start with full screen rect (even-odd fill rule punches holes)
+      let path = `0px 0px, ${W}px 0px, ${W}px ${H}px, 0px ${H}px, 0px 0px`;
+      for (const rect of rects) {
+        const {top: t, bottom: b, left: l, right: r} = rect;
+        path += `, ${l}px ${t}px, ${l}px ${b}px, ${r}px ${b}px, ${r}px ${t}px, ${l}px ${t}px`;
+      }
+      return `polygon(evenodd, ${path})`;
+    }
 
     function updateScanlineMask() {
-      if (!modelWrap) return;
-      const rect = modelWrap.getBoundingClientRect();
-      const t = rect.top;
-      const b = rect.bottom;
-      const l = rect.left;
-      const r = rect.right;
       const W = window.innerWidth;
       const H = window.innerHeight;
-      scanlines.style.clipPath = `polygon(
-        0px 0px, ${W}px 0px, ${W}px ${H}px, 0px ${H}px, 0px 0px,
-        ${l}px ${t}px, ${l}px ${b}px, ${r}px ${b}px, ${r}px ${t}px, ${l}px ${t}px
-      )`;
+      const rects = holeTargets.map(el => el.getBoundingClientRect());
+      scanlines.style.clipPath = buildHolePolygon(rects, W, H);
     }
 
     updateScanlineMask();
