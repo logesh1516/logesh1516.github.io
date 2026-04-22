@@ -79,7 +79,11 @@
 
     /* SCANLINE OVERLAY */
     body::before {
-      content: '';
+      content: none;
+    }
+
+    /* SCANLINE DIV */
+    #scanlines {
       position: fixed;
       inset: 0;
       background: repeating-linear-gradient(0deg,
@@ -1275,6 +1279,7 @@
 
 <body>
 
+  <div id="scanlines"></div>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
@@ -1796,35 +1801,35 @@
     <h2 class="section-title">In the <span>lab.</span></h2>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/Nikiro_original.jpg" alt="Nikiro AMR" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/Nikiro_original.webp" alt="Nikiro AMR" loading="lazy" />
         <div class="gallery-caption">Nikiro AMR — Physical Robot</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/award.jpg" alt="Best FYP Award" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/award.webp" alt="Best FYP Award" loading="lazy" />
         <div class="gallery-caption">Best Final Year Project 2025</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/scavenger.png" alt="Scavenger Robot CAD" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/scavenger.webp" alt="Scavenger Robot CAD" loading="lazy" />
         <div class="gallery-caption">Scavenger Robot — CAD Design</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/Scavenger_bot.jpg" alt="Scavenger Robot Real" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/Scavenger_bot.webp" alt="Scavenger Robot Real" loading="lazy" />
         <div class="gallery-caption">Scavenger Robot — Built</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/COE.png" alt="COE Replica" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/COE.webp" alt="COE Replica" loading="lazy" />
         <div class="gallery-caption">COE Building Replica — Blender</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/ideathonbot-Camera.png" alt="Ideathon Bot" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/ideathonbot-Camera.webp" alt="Ideathon Bot" loading="lazy" />
         <div class="gallery-caption">Ideathon Robot Design</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/jetmax_re-Camera.png" alt="JetMax Render" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/jetmax_re-Camera.webp" alt="JetMax Render" loading="lazy" />
         <div class="gallery-caption">JetMax — 3D Render</div>
       </div>
       <div class="gallery-item">
-        <img src="https://logesh1516.github.io/images/battlebot.png" alt="Battle Bot" loading="lazy" />
+        <img src="https://logesh1516.github.io/images/battlebot.webp" alt="Battle Bot" loading="lazy" />
         <div class="gallery-caption">Battle Bot Design</div>
       </div>
     </div>
@@ -1852,7 +1857,7 @@
   </section>
 
   <footer>
-    <div class="footer-text">© 2025 <span>Logesh S</span> — Robotics & Automation Engineer</div>
+    <div class="footer-text">© 2026 <span>Logesh S</span> — Robotics & Automation Engineer</div>
     <div class="footer-text">Built with <span>passion</span> for robotics 🤖</div>
   </footer>
 
@@ -1910,6 +1915,29 @@
         a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green)' : '';
       });
     });
+
+    // SCANLINE HOLE — punch out model viewer area
+    const scanlines = document.getElementById('scanlines');
+    const modelWrap = document.querySelector('.model-viewer-wrap');
+
+    function updateScanlineMask() {
+      if (!modelWrap) return;
+      const rect = modelWrap.getBoundingClientRect();
+      const t = rect.top;
+      const b = rect.bottom;
+      const l = rect.left;
+      const r = rect.right;
+      const W = window.innerWidth;
+      const H = window.innerHeight;
+      scanlines.style.clipPath = `polygon(
+        0px 0px, ${W}px 0px, ${W}px ${H}px, 0px ${H}px, 0px 0px,
+        ${l}px ${t}px, ${l}px ${b}px, ${r}px ${b}px, ${r}px ${t}px, ${l}px ${t}px
+      )`;
+    }
+
+    updateScanlineMask();
+    window.addEventListener('scroll', updateScanlineMask);
+    window.addEventListener('resize', updateScanlineMask);
   </script>
 </body>
 
