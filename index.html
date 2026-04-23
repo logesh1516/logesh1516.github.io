@@ -340,6 +340,44 @@
       transform: translateY(-2px);
     }
 
+    .btn-resume {
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--green);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--green2);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    .btn-resume::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(118, 185, 0, 0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .btn-resume:hover {
+      background: rgba(118, 185, 0, 0.1);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .btn-resume:hover::before {
+      opacity: 1;
+    }
+
     /* STAT ROW */
     .stat-row {
       position: absolute;
@@ -1332,6 +1370,10 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://logesh1516.github.io/resume/Logesh_S_Resume.pdf" download="Logesh_S_Resume.pdf"
+          target="_blank"
+          style="color:var(--green);border:1px solid var(--green2);padding:6px 14px;letter-spacing:1.5px;">↓ Resume</a>
+      </li>
     </ul>
   </nav>
 
@@ -1341,11 +1383,12 @@
     <div class="hero-content">
       <div class="hero-tag">Robotics Engineer</div>
       <h1 class="hero-name">Logesh<br><span>S</span></h1>
-      <div class="hero-title" id="typed-title">ROS 2 · SLAM · Isaac Sim · Nav2 · Docker<span
-          class="typed-cursor"></span></div>
+      <div class="hero-title" id="typed-title">ROS 2 · Nav2 · Moveit2· Isaac Sim · SLAM<span
+          class="typed-cursor"></span>
+      </div>
       <p class="hero-desc">
-        Building intelligent autonomous systems — from GPU-accelerated physics simulation
-        to real hardware deployment. IEEE-published. Featured on Open Robotics &amp; Hackster.io.
+        Autonomous robotics engineer focused on simulation-to-reality pipelines — leveraging GPU-accelerated physics and
+        deploying on real hardware. IEEE-published. Featured on Open Robotics &amp; Hackster.io.
       </p>
       <div class="cred-strip">
         <div class="cred-badge"><span class="dot"></span>IEEE Published — ICCRTEE 2025</div>
@@ -1356,12 +1399,22 @@
       <div class="hero-cta">
         <a href="#nikiro" class="btn-primary">View Nikiro Platform</a>
         <a href="#contact" class="btn-outline">Get In Touch</a>
+        <a href="https://logesh1516.github.io/resume/Logesh_S_Resume.pdf" download="Logesh_S_Resume.pdf" target="_blank"
+          class="btn-resume">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="square" stroke-linejoin="miter" style="flex-shrink:0;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Resume
+        </a>
       </div>
     </div>
     <div class="stat-row">
       <div class="stat-item">
         <div class="stat-num">3<span>+</span></div>
-        <div class="stat-label">Years in ROS 2</div>
+        <div class="stat-label">Years ROS 2 Experience</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">15<span>+</span></div>
@@ -1389,11 +1442,15 @@
         <div class="terminal">
           <div class="terminal-inner">
             <div><span class="t-dim">$</span> <span class="t-cyan">whoami</span></div>
-            <div><span class="t-green">logesh@nikiro</span><span class="t-dim">:~$</span></div>
+            <div><span class="t-green">logesh@loki</span><span class="t-dim">:~$</span></div>
             <div>&nbsp;</div>
             <div><span class="t-dim">name </span> <span class="t-white">Logesh S</span></div>
             <div><span class="t-dim">role </span> <span class="t-white">Robotics &amp; Automation Engineer</span></div>
             <div><span class="t-dim">college </span> <span class="t-white">Sri Ramakrishna Engineering College</span>
+            </div>
+            <div>
+              <span class="t-dim">edu </span>
+              <span class="t-white">B.E. Robotics & Automation (Minor: IoT)</span>
             </div>
             <div><span class="t-dim">cgpa </span> <span class="t-green">8.67 / 10</span></div>
             <div><span class="t-dim">langs </span> <span class="t-white">EN · 日本語 · 中文</span></div>
@@ -1403,13 +1460,14 @@
       </div>
       <div style="background:var(--bg3);padding:48px;display:flex;flex-direction:column;justify-content:center;">
         <p style="font-size:15px;color:var(--text2);line-height:1.9;margin-bottom:24px;">
-          Robotics engineer with hands-on experience across the full stack — from SLAM-based AMRs
+          Robotics engineer specializing in end-to-end autonomous systems — from SLAM-based AMRs
           and MoveIt manipulation pipelines to high-fidelity digital twins in NVIDIA Isaac Sim.
         </p>
+
         <p style="font-size:15px;color:var(--text2);line-height:1.9;">
-          My work bridges simulation and deployment: I don't just build things that work in Gazebo —
-          I validate them in GPU physics, containerize them with Docker, and run them on real hardware.
-          Published at IEEE ICCRTEE. Featured by Elephant Robotics on Hackster.io and Open Robotics Discourse.
+          Focused on bridging simulation and real-world deployment: validating systems in GPU-accelerated
+          physics, containerizing with Docker, and executing on physical hardware. IEEE ICCRTEE published.
+          Featured by Elephant Robotics on Hackster.io and Open Robotics Discourse.
         </p>
       </div>
     </div>
@@ -1730,7 +1788,7 @@
           <span class="skill-chip">AMCL</span>
           <span class="skill-chip">MoveIt Task Constructor</span>
           <span class="skill-chip">Behavior Trees</span>
-          <span class="skill-chip">Micro-ROS</span>
+          <span class="skill-chip">State Estimation</span>
           <span class="skill-chip">RViz 2</span>
         </div>
       </div>
@@ -1739,8 +1797,9 @@
         <div class="skill-list">
           <span class="skill-chip highlight">Blender</span>
           <span class="skill-chip highlight">Fusion 360</span>
+          <span class="skill-chip highlight">Adobe Substance Suite</span>
           <span class="skill-chip">SolidWorks</span>
-          <span class="skill-chip">Adobe Substance Suite</span>
+          <span class="skill-chip">Onshape</span>
           <span class="skill-chip">URDF / USD</span>
           <span class="skill-chip">Mesh Optimization</span>
           <span class="skill-chip">Texturing & Rendering</span>
@@ -1751,10 +1810,9 @@
         <div class="skill-list">
           <span class="skill-chip highlight">Python</span>
           <span class="skill-chip highlight">C++</span>
+          <span class="skill-chip highlight">Git</span>
           <span class="skill-chip highlight">Docker</span>
-          <span class="skill-chip">Rust (basics)</span>
-          <span class="skill-chip">Dart / Flutter</span>
-          <span class="skill-chip">Git</span>
+          <span class="skill-chip">Dart</span>
           <span class="skill-chip">Linux / Ubuntu</span>
           <span class="skill-chip">Neovim</span>
           <span class="skill-chip">Terraform</span>
@@ -1769,8 +1827,8 @@
           <span class="skill-chip">Teensy</span>
           <span class="skill-chip">PLC</span>
           <span class="skill-chip">Kepware</span>
-          <span class="skill-chip">OpenCV</span>
-          <span class="skill-chip">Deep Learning</span>
+          <!-- <span class="skill-chip">OpenCV</span> -->
+          <!-- <span class="skill-chip">Deep Learning</span> -->
         </div>
       </div>
     </div>
@@ -1912,6 +1970,8 @@
         <a href="https://www.linkedin.com/in/logesh-s-17674824b" target="_blank" class="contact-link primary">LinkedIn
           ↗</a>
         <a href="https://github.com/logesh1516" target="_blank" class="contact-link">GitHub ↗</a>
+        <a href="https://logesh1516.github.io/resume/Logesh_S_Resume.pdf" download="Logesh_S_Resume.pdf" target="_blank"
+          class="contact-link" style="border-color:var(--green2);color:var(--green);">↓ Resume</a>
         <a href="https://ieeexplore.ieee.org/document/11053000" target="_blank" class="contact-link">IEEE Paper ↗</a>
         <a href="https://discourse.openrobotics.org/t/indoor-navigation-robot-convey-workflow-with-nikiro-and-ros2/45249"
           target="_blank" class="contact-link">ROS Discourse ↗</a>
