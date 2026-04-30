@@ -1268,23 +1268,137 @@
       color: var(--text3);
     }
 
+    /* ─── HAMBURGER MENU ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: 1px solid var(--border2);
+      cursor: pointer;
+      padding: 8px;
+      z-index: 600;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--green);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 60px 0 0 0;
+      background: rgba(8, 12, 16, 0.97);
+      backdrop-filter: blur(16px);
+      z-index: 490;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-mobile-overlay.open {
+      display: flex;
+    }
+
+    .nav-mobile-overlay a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--text2);
+      text-decoration: none;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-mobile-overlay a:hover {
+      color: var(--green);
+      background: rgba(118, 185, 0, 0.04);
+    }
+
+    .nav-mobile-overlay a.resume-mobile {
+      color: var(--green);
+      margin-top: 16px;
+      border: 1px solid var(--green2);
+      width: auto;
+      padding: 14px 32px;
+      letter-spacing: 2px;
+    }
+
+    /* ─── TABLET (≤900px) ─── */
     @media (max-width: 900px) {
+      body {
+        cursor: auto;
+      }
+
+      .cursor,
+      .cursor-ring {
+        display: none;
+      }
+
       nav {
-        padding: 0 24px;
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
       }
 
       #hero {
-        padding: 80px 24px 0;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+
+      .hero-bg-text {
+        display: none;
       }
 
       .stat-row {
-        left: 24px;
-        bottom: 32px;
-        gap: 32px;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        gap: 24px;
       }
 
       section {
-        padding: 80px 24px;
+        padding: 72px 20px;
+      }
+
+      /* About grid */
+      div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
       }
 
       .nikiro-block {
@@ -1294,6 +1408,15 @@
       .nikiro-left {
         border-right: none;
         border-bottom: 1px solid var(--border);
+        padding: 32px 24px;
+      }
+
+      .nikiro-right {
+        padding: 32px 24px;
+      }
+
+      .nikiro-name {
+        font-size: 40px;
       }
 
       .eco-grid {
@@ -1315,41 +1438,186 @@
       .exp-item {
         grid-template-columns: 1fr;
         gap: 8px;
+        padding: 24px 20px;
       }
 
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-item iframe {
+        height: 280px;
+      }
+
       .contact-block {
-        padding: 48px 24px;
+        padding: 48px 20px;
       }
 
       footer {
         flex-direction: column;
         gap: 12px;
         text-align: center;
+        padding: 24px 20px;
       }
 
-      .hero-bg-text {
-        display: none;
+      /* Education/minor grid */
+      div[style*="grid-template-columns:1fr 1fr;gap:1px;background:var(--border)"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* ─── MOBILE (≤480px) ─── */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 16px;
+        height: 56px;
       }
 
-      .stat-row {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin-top: 48px;
-        flex-wrap: wrap;
-        gap: 24px;
+      .nav-logo {
+        font-size: 12px;
       }
 
       #hero {
+        padding: 80px 16px 48px;
+      }
+
+      .hero-cta {
         flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn-primary,
+      .btn-outline,
+      .btn-resume {
+        width: 100%;
+        text-align: center;
         justify-content: center;
-        padding-top: 100px;
-        min-height: auto;
-        padding-bottom: 60px;
+        padding: 14px 20px;
+      }
+
+      .cred-strip {
+        gap: 8px;
+      }
+
+      .cred-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+
+      .stat-row {
+        gap: 16px;
+      }
+
+      .stat-num {
+        font-size: 28px;
+      }
+
+      section {
+        padding: 56px 16px;
+      }
+
+      .section-title {
+        margin-bottom: 40px;
+      }
+
+      .nikiro-left,
+      .nikiro-right {
+        padding: 24px 16px;
+      }
+
+      .nikiro-name {
+        font-size: 34px;
+        letter-spacing: -1px;
+      }
+
+      .nikiro-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nikiro-link {
+        text-align: center;
+      }
+
+      .nikiro-stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .eco-card {
+        padding: 24px 20px;
+      }
+
+      .proj-card {
+        padding: 28px 20px;
+      }
+
+      .achieve-card {
+        padding: 28px 20px;
+      }
+
+      .skill-group {
+        padding: 28px 20px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
+      }
+
+      .video-item iframe {
+        height: 240px;
+      }
+
+      .contact-block {
+        padding: 36px 16px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-link {
+        text-align: center;
+        padding: 14px 20px;
+      }
+
+      footer {
+        padding: 20px 16px;
+      }
+
+      .footer-text {
+        font-size: 10px;
+      }
+
+      .terminal {
+        padding: 20px 16px;
+        font-size: 11px;
+      }
+
+      .exp-item {
+        padding: 20px 16px;
+      }
+
+      /* Inline padded divs (About, Education) */
+      div[style*="padding:48px"] {
+        padding: 24px 16px !important;
+      }
+
+      div[style*="padding:40px"] {
+        padding: 24px 16px !important;
+      }
+
+      model-viewer {
+        height: 320px;
+      }
+
+      .model-viewer-header {
+        padding: 14px 16px;
       }
     }
   </style>
@@ -1375,7 +1643,21 @@
           style="color:var(--green);border:1px solid var(--green2);padding:6px 14px;letter-spacing:1.5px;">↓ Resume</a>
       </li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="nav-mobile-overlay" id="mobileNav">
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#nikiro" class="mobile-nav-link">Nikiro</a>
+    <a href="#projects" class="mobile-nav-link">Projects</a>
+    <a href="#achievements" class="mobile-nav-link">Achievements</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="https://logesh1516.github.io/resume/Logesh_S_Resume.pdf" download="Logesh_S_Resume.pdf" target="_blank"
+      class="resume-mobile">↓ Resume</a>
+  </div>
 
   <!-- HERO -->
   <div id="hero">
@@ -2065,6 +2347,22 @@
       sections.forEach(s => {if (window.scrollY >= s.offsetTop - 80) current = s.id;});
       navLinks.forEach(a => {
         a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green)' : '';
+      });
+    });
+
+    // HAMBURGER MENU
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
       });
     });
 
